@@ -1,0 +1,27 @@
+<app-search-form  (valueEmitter)="handleValue($event)"></app-search-form>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Список контактів</h2>
+  <button class="btn btn-primary mb-3" (click)="openModal()">Додати контакт</button>
+  <div class="row" *ngIf="filteredContacts.length">
+    <div class="col-12" *ngFor="let contact of filteredContacts; let i = index">
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body d-flex align-items-center">
+          <div class="flex-grow-1">
+            <h5 class="card-title mb-0">{{ contact.firstName }} {{ contact.lastName }}</h5>
+            <p class="card-text text-muted">{{ contact.phone }}</p>
+          </div>
+          <div>
+            <a [routerLink]="['/contact', contact.id]" class="btn btn-outline-primary btn-sm me-2">
+              <i class="bi bi-eye"></i>
+            </a>
+            <button class="btn btn-outline-danger mt-2" (click)="deleteContact(contact)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-edit-or-create-form (contactAdded)="handleNewContacts($event)"></app-edit-or-create-form>

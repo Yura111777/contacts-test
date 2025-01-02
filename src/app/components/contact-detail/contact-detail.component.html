@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Деталі контакту</h2>
+
+  <div class="card shadow-sm p-3">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-3">
+        <div class="avatar me-3">
+          <img
+            src="https://via.placeholder.com/100"
+            alt="Avatar"
+            class="rounded-circle"
+          />
+        </div>
+        <div>
+          <h4 class="card-title mb-0">{{ contact.firstName }} {{ contact.lastName }}</h4>
+          <p class="text-muted mb-0">{{ contact.phone }}</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <div>
+        <h6 class="text-uppercase text-muted">Дата народження</h6>
+        <p>{{ contact.birthDate }}</p>
+      </div>
+
+      <div>
+        <h6 class="text-uppercase text-muted">Електронна пошта</h6>
+        <p>{{ contact.email }}</p>
+      </div>
+
+      <div>
+        <h6 class="text-uppercase text-muted">Адреса проживання</h6>
+        <p>{{ contact.address }}</p>
+      </div>
+
+      <div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-outline-primary" (click)="openModal()">
+          <i class="bi bi-pencil"></i> Редагувати
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-edit-or-create-form (contactWasModify)="handleEditingUser($event)"></app-edit-or-create-form>

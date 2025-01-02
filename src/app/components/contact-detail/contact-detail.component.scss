@@ -1,0 +1,23 @@
+.card {
+  border-radius: 15px;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+}
+
+button i {
+  margin-right: 5px;
+}

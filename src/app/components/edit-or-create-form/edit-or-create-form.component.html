@@ -1,0 +1,42 @@
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true" #contactModal>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">{{ currentContact ? 'Редагувати контакт' : 'Додати контакт' }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">Ім'я</label>
+            <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Прізвище</label>
+            <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Телефон</label>
+            <input type="text" id="phone" formControlName="phone" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="birthDate" class="form-label">Дата народження</label>
+            <input type="date" id="birthDate" formControlName="birthDate" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Електронна пошта</label>
+            <input type="email" id="email" formControlName="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Адреса</label>
+            <input type="text" id="address" formControlName="address" class="form-control" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+            <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">{{ currentContact ? 'Зберегти' : 'Додати' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
