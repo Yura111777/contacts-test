@@ -32,7 +32,6 @@ export class ContactListComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadContacts();
-    this.searchContacts();
   }
 
   handleValue(value: string): void {
@@ -66,6 +65,7 @@ export class ContactListComponent implements OnInit{
 
   loadContacts() {
       this.contacts = this.contactsService.getContacts();
+      this.searchContacts();
   }
 
   handleNewContacts (value: boolean): void {
@@ -79,6 +79,7 @@ export class ContactListComponent implements OnInit{
     if (confirmed) {
       this.contacts = this.contacts.filter(c => c !== contact);
       localStorage.setItem('contacts', JSON.stringify(this.contacts));
+      this.searchContacts();
     }
   }
 }
